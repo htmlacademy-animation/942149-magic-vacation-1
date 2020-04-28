@@ -1,5 +1,7 @@
 .social-block {
   position: relative;
+  transition: 1s opacity ease;
+  transition-delay: 0.3s;
 
   &:hover {
     .social-block__list {
@@ -17,6 +19,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: 0.5s color ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +38,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: 1s transform ease;
   }
 
   svg {
@@ -50,7 +54,7 @@
 
     &::before {
       width: 112.5%;
-      height: 112.5%;
+      transform: translate(-50%,-50%) scale(1.125);
     }
   }
 
@@ -168,6 +172,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: 0.5s color ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
