@@ -37,6 +37,8 @@ export default class FullPageScroll {
 
   changeVisibilityDisplay() {
     this.screenElements.forEach((screen) => screen.classList.add(`screen--hidden`));
+    this.screenElements.forEach((screen) => screen.classList.remove(`active`));
+    this.screenElements[this.activeScreen].classList.add(`active`);
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
   }
 
