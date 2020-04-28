@@ -53,7 +53,6 @@
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
       transform: translate(-50%,-50%) scale(1.125);
     }
   }
@@ -91,7 +90,6 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
   pointer-events: none;
 
   @media (min-width: $stop-scaling) {
@@ -144,11 +142,23 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    @for $i from 1 through 3 {
+      li:nth-of-type(#{$i}) { transition-delay: 0.15s * $i - 0.15s; }
+    }
+
+    li {
+      opacity: 1;
+    }
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -191,6 +201,7 @@
 
   &:hover {
     color: $c-purple;
+    transition-property: background, border, outline;
   }
 
   &:focus {
