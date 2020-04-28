@@ -93,6 +93,22 @@
   text-transform: uppercase;
   font-size: 2.4rem;
   line-height: 1.27;
+  opacity: 0;
+  transform: translateY(30px);
+
+  .active & {
+    animation-name: message-animation;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+  }
+
+  @keyframes message-animation {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
   @media (min-width: $stop-scaling) {
     width: 509px;

@@ -1,5 +1,7 @@
 .social-block {
   position: relative;
+  transition: 1s opacity ease;
+  transition-delay: 0.3s;
 
   &:hover {
     .social-block__list {
@@ -17,6 +19,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: 0.5s color ease;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +38,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: 1s transform ease;
   }
 
   svg {
@@ -49,8 +53,7 @@
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: translate(-50%,-50%) scale(1.125);
     }
   }
 
@@ -87,7 +90,6 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
   pointer-events: none;
 
   @media (min-width: $stop-scaling) {
@@ -140,11 +142,23 @@
   .social-block--active & {
     opacity: 1;
     pointer-events: auto;
+
+    @for $i from 1 through 3 {
+      li:nth-of-type(#{$i}) { transition-delay: 0.15s * $i - 0.15s; }
+    }
+
+    li {
+      opacity: 1;
+    }
   }
 
   li {
     flex: none;
     margin-bottom: 0.5rem;
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.35s;
+    transition-timing-function: ease;
 
     @media (min-width: $stop-scaling) {
       margin-bottom: 5px;
@@ -168,6 +182,7 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  transition: 0.5s color ease;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -186,6 +201,7 @@
 
   &:hover {
     color: $c-purple;
+    transition-property: background, border, outline;
   }
 
   &:focus {
