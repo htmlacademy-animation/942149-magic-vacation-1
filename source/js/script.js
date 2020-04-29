@@ -11,7 +11,6 @@ import FullPageScroll from './modules/full-page-scroll';
 import loadStatus from './modules/load-status.js';
 
 // init modules
-loadStatus();
 mobileHeight();
 slider();
 menu();
