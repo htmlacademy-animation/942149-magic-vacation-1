@@ -1,5 +1,5 @@
 export default () => {
-  window.addEventListener("load", function () {
-    document.body.classList.add("loaded");
+  window.addEventListener(`load`, function () {
+    document.body.classList.add(`loaded`);
   });
 };
