@@ -38,7 +38,12 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
-    transition: 1s transform ease;
+    transform: translate(-50%,-50%) scale(0);
+	  transition: transform 0.7s cubic-bezier(0.28, 0.42, 0.13, 0.99) 0.5s;
+  }
+  
+  .loaded &::before {
+    transform: translate(-50%,-50%);
   }
 
   svg {
@@ -48,12 +53,13 @@
     height: 2.2rem;
   }
 
-  &:hover,
+  .loaded &:hover,
   .social-block--active & {
     color: $c-purple;
 
     &::before {
       transform: translate(-50%,-50%) scale(1.125);
+      transition: 1s transform ease;
     }
   }
 
