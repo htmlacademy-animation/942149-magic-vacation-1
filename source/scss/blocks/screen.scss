@@ -311,7 +311,19 @@
 .screen--prizes {
   background-color: transparent;
   z-index: 3;
-  transition-delay: 1.35s;
+  transition-duration: 0.5s;
+
+  &.screen--hidden {
+    transition-delay: 1.35s;
+  }
+
+  &.active {
+    transition-delay: 1.35s;
+  }
+}
+
+.screen.active {
+  z-index: 3;
 }
 
 .screen--game {
