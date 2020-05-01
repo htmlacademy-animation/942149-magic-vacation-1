@@ -1,0 +1,17 @@
+.curtain {
+  position: absolute;
+  top: 0;
+  bottom: calc(var(--vh, vh) * 100);
+  left: 0;
+  right: 0;
+  background-color: $c-dark;
+  z-index: 2;
+  transform: scaleY(0);
+  transform-origin: bottom;
+
+
+  .active.screen--prizes ~ & {
+    transform: none;
+    transition: transform 1.35s ease;
+  }
+}

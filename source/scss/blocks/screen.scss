@@ -10,6 +10,11 @@
 
   &--hidden {
     opacity: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -304,7 +309,9 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  background-color: transparent;
+  z-index: 3;
+  transition-delay: 1.35s;
 }
 
 .screen--game {
