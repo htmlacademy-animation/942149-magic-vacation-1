@@ -4,5 +4,5 @@ export default () => {
   lastRule.addEventListener(`transitionend`, function (evt) {
     evt.stopPropagation();
     screenRules.classList.add(`rules-animated`);
-  })
+  });
 };
