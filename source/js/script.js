@@ -10,6 +10,7 @@ import social from './modules/social.js';
 import FullPageScroll from './modules/full-page-scroll';
 import loadStatus from './modules/load-status.js';
 import rulesAnimationStatus from './modules/rules-animation.js';
+import lettersAnimation from './modules/letters-animation.js';
 
 // init modules
 loadStatus();
@@ -22,6 +23,7 @@ result();
 form();
 social();
 rulesAnimationStatus();
+lettersAnimation();
 
 const fullPageScroll = new FullPageScroll();
 fullPageScroll.init();
