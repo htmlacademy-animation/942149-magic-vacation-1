@@ -46,7 +46,7 @@ export default () => {
         return;
       }
 
-      let strings = this._element.textContent.split('\n');
+      let strings = this._element.textContent.split(`\n`);
       let textElement = this;
       let textBlock = ``;
       strings.forEach(function (el) {
@@ -57,8 +57,8 @@ export default () => {
 
       let childBlocks = this._element.querySelectorAll(`span.text__string`);
 
-      childBlocks.forEach(function (child, childIndex) {
-        const text = child.textContent.trim().split(` `).filter((latter)=>latter !== '');
+      childBlocks.forEach(function (child) {
+        const text = child.textContent.trim().split(` `).filter((latter)=>latter !== ``);
 
         const content = text.reduce((fragmentParent, word) => {
           textElement._letterIndex = 1;
@@ -77,7 +77,7 @@ export default () => {
 
         child.innerHTML = ``;
         child.appendChild(content);
-      })
+      });
     }
 
     runAnimation() {
