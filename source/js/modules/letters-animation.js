@@ -1,12 +1,12 @@
 export default () => {
   class AccentTypographyBuild {
     constructor(
-      elementSelector,
-      timer,
-      classForActivate,
-      property,
-      timeOffset,
-      isLineByLine,
+        elementSelector,
+        timer,
+        classForActivate,
+        property,
+        timeOffset,
+        isLineByLine,
     ) {
       this._TIME_SPACE = 100;
       this._timeOffset = timeOffset;
@@ -98,6 +98,6 @@ export default () => {
   }, 500);
   const animationTopScreenDate = new AccentTypographyBuild(`.intro__date`, 1000, `active`, `transform`, 150, 0);
   setTimeout(()=>{
-    animationTopScreenTextLine.runAnimation();
+    animationTopScreenDate.runAnimation();
   }, 500);
 };
