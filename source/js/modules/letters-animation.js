@@ -50,12 +50,12 @@ export default () => {
       let textElement = this;
       let textBlock = ``;
       strings.forEach(function (el) {
-        textBlock = textBlock + '<span class=text__string>' + el + '</span>';
-      })
+        textBlock = textBlock + `<span class=text__string>` + el + `</span>`;
+      });
       this._element.innerHTML = ``;
       this._element.innerHTML = textBlock;
 
-      let childBlocks = this._element.querySelectorAll('span.text__string');
+      let childBlocks = this._element.querySelectorAll(`span.text__string`);
 
       childBlocks.forEach(function (child, childIndex) {
         const text = child.textContent.trim().split(` `).filter((latter)=>latter !== '');
