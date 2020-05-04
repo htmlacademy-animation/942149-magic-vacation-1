@@ -4,16 +4,18 @@
       elementSelector,
       timer,
       classForActivate,
-      property
+      property,
+      timeOffset,
+      isLineByLine,
     ) {
       this._TIME_SPACE = 100;
-
+      this._timeOffset = timeOffset;
+      this._isLineByLine = isLineByLine;
       this._elementSelector = elementSelector;
       this._timer = timer;
       this._classForActivate = classForActivate;
       this._property = property;
       this._element = document.querySelector(this._elementSelector);
-      this._timeOffset = 150;
       this._letterIndex = 0;
       this._stringIndex = 0;
 
@@ -35,7 +37,7 @@
         }
       }
       this._letterIndex += 1;
-      span.style.transition = `${this._property} ${this._timer}ms ease ${this._timeOffset * i + this._stringIndex}ms`;
+      span.style.transition = `${this._property} ${this._timer}ms ease ${this._timeOffset * i + this._stringIndex * this._isLineByLine}ms`;
       return span;
     }
 
@@ -90,7 +92,11 @@
     }
   }
 
-  const animationTopScreenTextLine = new AccentTypographyBuild(`.intro__title`, 1000, `active`, `transform`);
+  const animationTopScreenTextLine = new AccentTypographyBuild(`.intro__title`, 1000, `active`, `transform`, 150, 1);
+  setTimeout(()=>{
+    animationTopScreenTextLine.runAnimation();
+  }, 500);
+  const animationTopScreenDate = new AccentTypographyBuild(`.intro__date`, 1000, `active`, `transform`, 150, 0);
   setTimeout(()=>{
     animationTopScreenTextLine.runAnimation();
   }, 500);
