@@ -1,4 +1,4 @@
- export default () => {
+export default () => {
   class AccentTypographyBuild {
     constructor(
       elementSelector,
