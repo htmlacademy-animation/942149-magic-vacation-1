@@ -95,6 +95,8 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  transform: translateX(30px);
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -154,6 +156,7 @@
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  opacity: 0;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -215,7 +218,7 @@
   }
 
   &.swiper-button-disabled {
-    opacity: 0.5;
+    opacity: 0;
     pointer-events: none;
   }
 }
@@ -273,5 +276,104 @@
       height: 0.4rem;
       background-color: $c-light;
     }
+  }
+}
+
+@keyframes left-btn-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-720deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes right-btn-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) rotate(720deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes left-disabled-btn-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px) rotate(-720deg);
+  }
+
+  100% {
+    opacity: 0.5;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+@keyframes right-disabled-btn-animation {
+  0% {
+    opacity: 0;
+    transform: translateX(100px) rotate(720deg);
+  }
+
+  100% {
+    opacity: 0.5;
+    transform: translateX(0) rotate(0deg);
+  }
+}
+
+.slider__control--prev,
+.slider__control--next {
+  opacity: 0;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55);
+
+  .active & {
+    animation-delay: 0.5s;
+    animation-name: left-btn-animation;
+  }
+
+  .active &.swiper-button-disabled {
+    animation-name: left-disabled-btn-animation;
+  }
+}
+
+.slider__control--next {
+  .active & {
+    animation-name: right-btn-animation;
+  }
+
+  .active &.swiper-button-disabled {
+    animation-name: right-disabled-btn-animation;
+  }
+}
+
+.slider__item.swiper-slide-active,
+.slider__item.swiper-slide-next {
+  .slider__item-text {
+    animation-name: slider-text;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    animation-delay: 0.5s;
+  }
+}
+
+.slider__item.swiper-slide-next {
+  .slider__item-text {
+    animation-delay: 1s;
+  }
+}
+
+@keyframes slider-text {
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
