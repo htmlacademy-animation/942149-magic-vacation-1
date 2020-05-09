@@ -3071,8 +3071,7 @@ img {
   position: relative;
   width: 4rem;
   height: 4rem;
-  color: #5f458c;
-  opacity: 0; }
+  color: #5f458c; }
   .slider__control:focus {
     outline: none; }
   @media (min-width: 2000px) {
@@ -3122,7 +3121,7 @@ img {
       background-color: #a67ee5;
       border-color: #a67ee5; }
   .slider__control.swiper-button-disabled {
-    opacity: 0;
+    opacity: 0.5;
     pointer-events: none; }
 
 .slider__pagination.swiper-pagination {
@@ -3176,54 +3175,25 @@ img {
 @keyframes left-btn-animation {
   0% {
     opacity: 0;
-    transform: translateX(-100px) rotate(-720deg); }
-  100% {
-    opacity: 1;
-    transform: translateX(0) rotate(0deg); } }
+    transform: translateX(-100px) rotate(-720deg); } }
 
 @keyframes right-btn-animation {
   0% {
     opacity: 0;
-    transform: translateX(100px) rotate(720deg); }
-  100% {
-    opacity: 1;
-    transform: translateX(0) rotate(0deg); } }
-
-@keyframes left-disabled-btn-animation {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px) rotate(-720deg); }
-  100% {
-    opacity: 0.5;
-    transform: translateX(0) rotate(0deg); } }
-
-@keyframes right-disabled-btn-animation {
-  0% {
-    opacity: 0;
-    transform: translateX(100px) rotate(720deg); }
-  100% {
-    opacity: 0.5;
-    transform: translateX(0) rotate(0deg); } }
+    transform: translateX(100px) rotate(720deg); } }
 
 .slider__control--prev,
 .slider__control--next {
-  opacity: 0;
   animation-duration: 1s;
   animation-fill-mode: forwards;
   animation-timing-function: cubic-bezier(0.68, -0.55, 0.27, 1.55); }
   .active .slider__control--prev, .active
   .slider__control--next {
-    animation-delay: 0.5s;
+    animation-delay: 0.1s;
     animation-name: left-btn-animation; }
-  .active .slider__control--prev.swiper-button-disabled, .active
-  .slider__control--next.swiper-button-disabled {
-    animation-name: left-disabled-btn-animation; }
 
 .active .slider__control--next {
   animation-name: right-btn-animation; }
-
-.active .slider__control--next.swiper-button-disabled {
-  animation-name: right-disabled-btn-animation; }
 
 .slider__item.swiper-slide-active .slider__item-text,
 .slider__item.swiper-slide-next .slider__item-text {
